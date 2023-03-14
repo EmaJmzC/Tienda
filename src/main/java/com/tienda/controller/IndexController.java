@@ -11,10 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-/**
- *
- * @author PC
- */
+
 @Controller
 @Slf4j
 public class IndexController {
@@ -25,45 +22,9 @@ public class IndexController {
     @GetMapping("/")
     public String inicio(Model model) {
         log.info("Ahora utilizando MVC");
-        //String mensaje = "Estamos en semana 4, saludos!";
-        //model.addAttribute("MensajeSaludo", mensaje);
-        
-        //Cliente cliente = new Cliente ("Emanuel","Jimenez","ejmz141@gmail.com","12345678");
-        //Cliente cliente2 = new Cliente ("Carlos","Calvo","carlos@gmail.com","12345678");
-        //Cliente cliente3 = new Cliente ("Juan","Jimenez","juan@gmail.com","18345678");
-        
-        //model.addAttribute("cliente", cliente);
-        
-        //List<Cliente> clientes = Arrays.asList(cliente,cliente2,cliente3);
-        
-        //var clientes = clienteDao.findAll();
         var clientes = clienteService.getClientes();
         model.addAttribute("clientes", clientes);
         
         return "index";
-    }
-    
-    @GetMapping("/nuevoCliente")
-    public String nuevoCliente(Cliente cliente){
-        return "modificarCliente";
-    }
-    
-    @PostMapping("/guardarCliente")
-    public String guardarCliente(Cliente cliente){
-        clienteService.save(cliente);
-        return "redirect:/";
-    }
-    
-    @GetMapping("/modificarCliente/{idCliente}")
-    public String modificarCliente(Cliente cliente, Model model){
-        cliente = clienteService.getCliente(cliente);
-        model.addAttribute("cliente", cliente);
-        return "modificarCliente";
-    }
-    
-    @GetMapping("/eliminarCliente/{idCliente}")
-    public String eliminarCliente(Cliente cliente){
-        clienteService.delete(cliente);
-        return "redirect:/";
     }
 }
