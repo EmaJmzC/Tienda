@@ -10,8 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="cliente")
-
+@Table(name="articulo")
 public class Articulo implements Serializable{
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

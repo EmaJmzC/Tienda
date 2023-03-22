@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ClienteDao extends CrudRepository<Cliente, Long> {
-    List<Cliente> findByNombreOrApellido (String nombre, String Apellido);
+    List<Cliente> findByNombreOrApellidos(String nombre, String apellidos);
 }
