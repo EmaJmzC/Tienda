@@ -12,7 +12,6 @@ public interface ClienteService {
     public void save(Cliente cliente); //para insertar y modificar
    
     public void delete(Cliente cliente);
-    
-    
-    
+   
+    public List<Cliente> getNombreOApellidos (String nombre, String apellidos);
 }

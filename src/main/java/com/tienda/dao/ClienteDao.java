@@ -1,12 +1,9 @@
 package com.tienda.dao;
 
 import com.tienda.domain.Cliente;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-/**
- *
- * @author PC
- */
 public interface ClienteDao extends CrudRepository<Cliente, Long> {
-    
+    List<Cliente> findByNombreOrApellido (String nombre, String Apellido);
 }

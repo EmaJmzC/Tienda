@@ -16,7 +16,9 @@ public class ClienteController {
     
    @GetMapping("/cliente/listado")
     public String inicio(Model model) {
-        var clientes = clienteService.getClientes();
+        //var clientes = clienteService.getClientes();
+        //var clientes = clienteService.getClienteCorreo(correo);
+        //var clientes = clienteService.getNombreOApellidos(nombre, apellidos);
         model.addAttribute("clientes", clientes);
         
         return "/cliente/listado";
@@ -46,4 +48,15 @@ public class ClienteController {
         return "redirect:/cliente/listado";
     }
     
+    @PostMapping("/cliente/buscar")
+    public String buscarCliente(Cliente cliente, Model model){
+        var clientes = clienteService.getNombreOApellidos(cliente.getNombre(), cliente.getApellidos());
+        model.addAttribute("clientes", clientes);
+        return "/cliente/buscar";
+    }
+    
+    @GetMapping("/cliente/buscar")
+    public String buscarCliente(Cliente cliente){
+        return "/cliente/buscar";
+    }
 }
