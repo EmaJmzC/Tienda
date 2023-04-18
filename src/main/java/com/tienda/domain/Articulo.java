@@ -1,7 +1,7 @@
 package com.tienda.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
